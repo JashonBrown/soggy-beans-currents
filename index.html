@@ -15,12 +15,6 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
-
-  <!-- Comic Relief -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
 </head>
 
 <body class="py-5">
@@ -36,16 +30,26 @@
   <script>
     document.title = siteConfig.siteTitle;
 
+    if (siteConfig.fontImport) {
+      const fontLink = document.createElement("link");
+      fontLink.rel = "stylesheet";
+      fontLink.href = siteConfig.fontImport;
+      document.head.appendChild(fontLink);
+    }
+
     document.body.style.backgroundColor = siteConfig.backgroundColor;
-    document.body.style.backgroundImage = 'url("images/soggy-beans-bg.jpg")';
+    document.body.style.backgroundImage = siteConfig.backgroundImage
+      ? `url("${siteConfig.backgroundImage}")`
+      : "none";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundAttachment = "fixed";
     document.body.style.color = siteConfig.textColor;
-    document.body.style.fontFamily = '"Comic Relief", sans-serif';
+    document.body.style.fontFamily = siteConfig.fontFamily;
 
     document.getElementById("page-title").textContent = siteConfig.pageTitle;
+    document.getElementById("page-title").style.color = siteConfig.titleColor;
 
     fetch('files/files.json')
       .then(r => r.json())

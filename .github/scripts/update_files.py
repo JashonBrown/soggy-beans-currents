@@ -117,6 +117,14 @@ for filename in uploads:
         os.replace(source_path, target_path)
 
 
+# remove currents whose published ZIP has been deleted
+bundles_by_id = {
+    bundle_id: bundle
+    for bundle_id, bundle in bundles_by_id.items()
+    if os.path.exists(os.path.join(DIRECTORY, f'{bundle["slug"]}.zip'))
+}
+
+
 bundles = sorted(
     bundles_by_id.values(),
     key=lambda bundle: bundle["name"].lower()

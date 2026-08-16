@@ -40,22 +40,32 @@
       .then(files => {
         const list = document.getElementById("file-list");
 
-        files.forEach(filename => {
-          const displayName = filename.replace(/\.zip$/i, "");
+        files.forEach(bundle => {
+          const filename = `${bundle.slug}.zip`;
           const item = document.createElement("div");
           item.className = "list-group-item d-flex justify-content-between align-items-center";
-    
-          const name = document.createElement("span");
-          name.textContent = displayName;
-    
+
+          const content = document.createElement("div");
+
+          const name = document.createElement("div");
+          name.className = "fw-semibold";
+          name.textContent = bundle.name;
+
+          const description = document.createElement("div");
+          description.className = "text-secondary small";
+          description.textContent = bundle.description;
+
           const button = document.createElement("button");
           button.className = "btn btn-sm";
           button.style.border = `1px solid ${siteConfig.accentColor}`;
           button.style.color = siteConfig.accentColor;
           button.innerHTML = '<i class="fa-solid fa-clipboard"></i>';
           button.onclick = () => copyLink(filename, button);
-    
-          item.appendChild(name);
+
+          content.appendChild(name);
+          content.appendChild(description);
+
+          item.appendChild(content);
           item.appendChild(button);
           list.appendChild(item);
         });
@@ -80,7 +90,7 @@
           status.textContent = "";
           button.innerHTML = '<i class="fa-solid fa-clipboard"></i>';
           button.style.color = siteConfig.accentColor;
-        }, 2500);
+        }, 4000);
       });
     }
   </script>

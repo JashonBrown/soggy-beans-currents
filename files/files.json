@@ -4,5 +4,11 @@
     "slug": "test-bundle-v3",
     "name": "Test Bundle v3",
     "description": "A = unchanged -> missing\\nB = changed -> restored v1\\nC = missing -> missing\\nD = changed -> missing \\nE = missing -> restored v1\\nF = missing -> restored but changed\\nG = changed -> changed again"
+  },
+  {
+    "id": "182229fb-9017-48cf-bcc3-d07630d14c0b",
+    "slug": "very-good-title",
+    "name": "Very good title",
+    "description": "this is also a very good dfescription"
   }
 ]

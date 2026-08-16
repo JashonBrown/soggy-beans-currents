@@ -51,7 +51,8 @@
     document.getElementById("page-title").textContent = siteConfig.pageTitle;
     document.getElementById("page-title").style.color = siteConfig.titleColor;
 
-    fetch('files/files.json')
+    // add date for cache busting to not need to hard refresh after each update
+    fetch(`files/files.json?v=${Date.now()}`)
       .then(r => r.json())
       .then(files => {
         const list = document.getElementById("file-list");

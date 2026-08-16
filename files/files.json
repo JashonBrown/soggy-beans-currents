@@ -1,3 +1,8 @@
 [
-  "Test Bundle v3.zip"
+  {
+    "id": "d947b110-f643-46c1-8202-a34b2227747b",
+    "slug": "test-bundle-v3",
+    "name": "Test Bundle v3",
+    "description": "A = unchanged -> missing\\nB = changed -> restored v1\\nC = missing -> missing\\nD = changed -> missing \\nE = missing -> restored v1\\nF = missing -> restored but changed\\nG = changed -> changed again"
+  }
 ]
